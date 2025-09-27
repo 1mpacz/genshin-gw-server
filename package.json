@@ -6,6 +6,7 @@
     "test": "echo \"Error: no test specified\" && exit 1",
     "nodemon": "nodemon --watch 'src' --ext ts,graphql --exec ts-node src/index.ts",
     "build": "tsc",
+    "gcp-build": "yarn build",
     "lint": "eslint . --ext .ts,.js",
     "format": "prettier --write 'src/**/*.{ts,js,json,graphql}'",
     "start": "yarn build && node dist/src/index.js",
