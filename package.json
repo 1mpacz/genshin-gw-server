@@ -5,11 +5,11 @@
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
     "nodemon": "nodemon --watch 'src' --ext ts,graphql --exec ts-node src/index.ts",
-    "build": "ls && tsc",
-    "gcp-build": "ls && yarn build",
+    "build": "tsc",
+    "gcp-build": "yarn build",
     "lint": "eslint . --ext .ts,.js",
     "format": "prettier --write 'src/**/*.{ts,js,json,graphql}'",
-    "start": "ls && yarn build && node dist/src/index.js",
+    "start": "yarn build && node dist/src/index.js",
     "drizzle": "drizzle-kit push"
   },
   "author": "",
