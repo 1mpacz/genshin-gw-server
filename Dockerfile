@@ -9,16 +9,15 @@ FROM node:20-alpine AS build
 WORKDIR /app
 COPY --from=deps /app/node_modules ./node_modules
 COPY . .
-# If TypeScript:
 RUN yarn build
 
 # -------- runtime --------
 FROM node:20-alpine
 WORKDIR /app
 ENV NODE_ENV=production
-# Cloud Run will inject PORT, but set a sane default for local runs
-ENV PORT=8765
+# Cloud Run injects PORT at runtime; default to 8080 for local runs
+ENV PORT=8080
 COPY --from=build /app/dist ./dist
 COPY --from=deps  /app/node_modules ./node_modules
-EXPOSE 8765
+EXPOSE 8080
 CMD ["node", "dist/index.js"]

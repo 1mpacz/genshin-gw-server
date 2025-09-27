@@ -1235,7 +1235,7 @@ setInterval(() => tryMatchQueue(authQueue), 1000);
 setInterval(() => tryMatchQueue(guestQueue), 1000);
 
 // replace your httpServer.listen(8765, ...)
-const PORT = Number(process.env.PORT || 8765);
+const PORT = Number(process.env.PORT || 8080);
 
 httpServer.listen(PORT, '0.0.0.0', () => {
   console.log(`server up on :${PORT}`);
